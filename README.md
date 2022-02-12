@@ -42,6 +42,8 @@ python3 -m venv .venv
 source .venv/bin/activate
 ```
 
+- Install Python dependencies: `pip install -r requirements.txt`
+
 - Export following environment variables:
 
   ```
@@ -49,8 +51,6 @@ source .venv/bin/activate
   export SLACK_APP_TOKEN=<xapp-...>
   export TG_BOT_TOKEN=<0123456789:AA..>
   ```
-
-- Install Python dependencies: `pip install -r requirements.txt`
 
 - Run the code: `python3 main.py`
 
@@ -64,5 +64,8 @@ source .venv/bin/activate
 ```
 - Run the docker container:
 ```
-docker run -d -v $(pwd)/routing.conf:/app/routing.conf -e SLACK_BOT_TOKEN=${SLACK_BOT_TOKEN} -e SLACK_APP_TOKEN=${SLACK_APP_TOKEN} -e TG_BOT_TOKEN=${TG_BOT_TOKEN} slack2gram:latest
+docker run -d -v $(pwd)/routing.conf:/app/routing.conf \
+-e SLACK_BOT_TOKEN=${SLACK_BOT_TOKEN} \
+-e SLACK_APP_TOKEN=${SLACK_APP_TOKEN} \
+-e TG_BOT_TOKEN=${TG_BOT_TOKEN} baber/slack2gram:latest
 ```
